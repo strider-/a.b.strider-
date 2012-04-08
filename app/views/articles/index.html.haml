@@ -11,10 +11,11 @@
       %br
       - if current_user? article.user
         ~ "// TODO: "
-        != (link_to "edit") + ", " + (link_to "delete") + " ect..."
+        != (edit_link article) + ", " + (delete_link article)
     %p= article.content
     %p.post_footer
       - if article.modified?
         ~ "// Modified: #{article.updated_at.localtime} | "
         %time.timeago{ datetime: article.updated_at.to_s(:timeago) }
+        %br
       != "#define TAGS '#{tag_list article}'"

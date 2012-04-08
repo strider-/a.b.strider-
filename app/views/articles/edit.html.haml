@@ -1,0 +1,19 @@
+- provide(:title, "Edit Post")
+
+%h2 Edit Post
+
+= form_for @article do |f|
+  = f.hidden_field :user_id
+  %p
+    = f.label :title
+    %br
+    = f.text_field :title, class: "input wide"
+  %p
+    = f.label :content
+    %br
+    = f.text_area :content, class: "input"
+  %p
+    = f.label :tags
+  %p
+    = f.submit value: "Post", class: "input"
+    %input.input{ type: "button", value: "Cancel", id: "cancel" } 

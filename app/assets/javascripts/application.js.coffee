@@ -29,5 +29,7 @@ NFO.SiteFeatures = init: ->
   # enabling timeago plugin
   $("time.timeago").timeago()
   # enabling 'cancel' elements by id
-  $("#cancel").click ->
+  $("#cancel").click (e) ->
+    e.preventDefault()
     window.location = '/'
+    return false

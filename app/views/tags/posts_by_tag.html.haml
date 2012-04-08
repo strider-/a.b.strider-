@@ -4,10 +4,10 @@
 
 - @articles.each do |a|
   .post
-    %h3= link_to a.title, show_article_path(a)
+    %h3= link_to a.title, article_path(a)
     %p
       %span= a.content.truncate(100)
-      = link_to "(more)", show_article_path(a)
+      = link_to "(more)", article_path(a)
       %span.post_footer
       ~ "// posted "
       %time.timeago{ datetime: a.created_at.to_s(:timeago) }

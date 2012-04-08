@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 # Creating base account
-me = User.create(
+User.create(
   firstname:"Michael",
   lastname:"Tighe",
   nickname:"strider-",
@@ -15,27 +15,7 @@ me = User.create(
   birthday:"1980-04-03",
   password:"password",
   password_confirmation:"password"
-  bio: ""
-)
-
-# dummy posts
-article_one = me.articles.create(
-  title: "Test Post", 
-  content: "Oh yeah"
-)
-article_one.tags.create(
-  value: "Test"
-)
-
-article_two = me.articles.create(
-  title: "Another Test Post", 
-  content: "You'd think I'd get tired of reinventing the wheel but I guess not!"
-)
-article_two.tags.create(
-  value: "Another"
-)
-article_two.tags.create(
-  value: "Test"
+  bio: "West Philadelphia born & raised, on the playground is where I spent most of my days."
 )
 
 #personal links

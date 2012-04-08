@@ -1,7 +1,8 @@
 .post
   %h2= article.title
   %p.post_header
-    ~"// Author: #{article.user.nickname}"
+    ~"// Author:"
+    = link_to article.user.nickname, user_path(article.user)
     %br
     ~"// Date: #{article.created_at.localtime} | "
     %time.timeago{ datetime: article.created_at.to_s(:timeago) }

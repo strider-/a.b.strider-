@@ -13,8 +13,9 @@ me = User.create(
   nickname:"strider-",
   email:"striderIIDX@gmail.com",
   birthday:"1980-04-03",
-  password:"ragnarok",
-  password_confirmation:"ragnarok"
+  password:"password",
+  password_confirmation:"password"
+  bio: ""
 )
 
 # dummy posts

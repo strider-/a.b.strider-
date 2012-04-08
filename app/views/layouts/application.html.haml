@@ -38,7 +38,7 @@
           %a{href: link.link, title: link.title, target: "_blank" } [#{link.code}]
         .account
           - if authenticated? 
-            != "<" + (link_to current_user.nickname) + ">"
+            != "<" + (link_to current_user.nickname, edit_user_path(current_user)) + ">"
             = link_to "[l-]", logout_path, method: "delete"
           - else          
             = link_to "[l+]", login_path

@@ -7,6 +7,10 @@ class ArticlesController < ApplicationController
     @articles = Article.last(5)
   end
 
+
+
+
+
   def new
     @article = current_user.articles.build
   end

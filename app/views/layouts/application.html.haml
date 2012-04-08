@@ -1,0 +1,43 @@
+!!! 5
+%html
+  %head
+    %title= (yield(:title) + raw(" &mdash; ") unless yield(:title).nil?) + "a.b.strider-"
+    = stylesheet_link_tag "application", :media => "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  %body
+    .container
+      .header
+        = render 'shared/banner'      
+        .subheader :: alt.binaries.strider- ::
+      .sidebar
+        %ul
+          %li
+            = link_to "Home", root_path
+          %li
+            %a{ href: "#"} Archive
+          %li
+            %a{ href: "#"} Projects
+        - if authenticated?
+          %ul
+            %li
+              %a{ href: "#"} New Post
+            %li
+              %a{ href: "#"} Footer Links
+        %p
+          %span Maybe some content here or something, who cares
+      .content
+        - flash.each do |key,msg|
+          .message
+            %span= msg
+            %a{href: "#", class: "close", title: "close"} X 
+        = yield
+      .footer
+        - personal_links.each do |link|
+          %a{href: link.link, title: link.title, target: "_blank" } [#{link.code}]
+        .account
+          - if authenticated? 
+            != "<" + (link_to current_user.nickname) + ">"
+            = link_to "[l-]", logout_path, method: "delete"
+          - else          
+            = link_to "[l+]", login_path

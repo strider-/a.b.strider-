@@ -1,4 +1,7 @@
 - provide(:title, "Home")
 
+- if @articles.empty?
+  %h2 Tumbleweeds...
+  
 - @articles.each do |article|
   = render 'form', article: article

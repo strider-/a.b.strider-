@@ -24,6 +24,7 @@ gem 'jquery-rails'
 gem 'simple_form'
 gem 'inherited_resources'
 gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'uuid'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

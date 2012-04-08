@@ -91,6 +91,10 @@ h2 {
   margin: 5px;
   cursor:pointer;
   display:inline-block;
+
+  &:hover {
+    background-color: #ddd;
+  }
 }
 
 .validation-summary-errors {

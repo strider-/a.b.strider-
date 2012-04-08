@@ -1,9 +1,10 @@
 class Article < ActiveRecord::Base
-  attr_accessible :title, :content, :user_id
+  attr_accessible :title, :content, :user_id, :tags
   after_destroy :cleanup
   
   belongs_to :user
   has_many :tags
+  accepts_nested_attributes_for :tags
 
   validates :title, presence: true
   validates :content, presence: true

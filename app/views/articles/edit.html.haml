@@ -3,6 +3,7 @@
 %h2 Edit Post
 
 = form_for @article do |f|
+  = f.hidden_field :id
   = f.hidden_field :user_id
   %p
     = f.label :title
@@ -14,6 +15,7 @@
     = f.text_area :content, class: "input"
   %p
     = f.label :tags
+    = render partial: 'tags/form', locals: { tags: @article.tags }    
   %p
     = f.submit value: "Post", class: "input"
     %input.input{ type: "button", value: "Cancel", id: "cancel" } 

@@ -4,7 +4,7 @@ class ArticlesController < ApplicationController
   include ApplicationHelper
 
   def index
-    @articles = Article.last(5)
+    @articles = Article.order("created_at DESC").last(5)
   end
 
   def show
@@ -22,6 +22,7 @@ class ArticlesController < ApplicationController
   def update
     @article = current_user.articles.find(params[:id])
     if @article.update_attributes(params[:article])
+      update_tags
       redirect_to root_path, notice: "Update to '#{@article.title}' successful."
     else
       flash.now[:error] = "You need to fill out every field."
@@ -32,6 +33,7 @@ class ArticlesController < ApplicationController
   def create
     @article = current_user.articles.build(params[:article])
     if @article.save
+      update_tags
       redirect_to root_path, notice: "Post successful."
     else
       flash.now[:error] = "You need to fill out every field."
@@ -48,5 +50,18 @@ class ArticlesController < ApplicationController
 
     def authenticated
       redirect_to root_path if current_user.nil?
+    end
+
+    def update_tags
+      values = params[:tags].map{|t| t.second[".value"]}
+      toAdd = values - @article.tags.map{|t| t.value}
+      toDel = @article.tags.map{|t| t.value} - values
+
+      toAdd.each do |v|
+        @article.tags.create(value: v)
+      end
+      toDel.each do |v|
+        @article.tags.find_by_value(v).destroy
+      end
     end
 end

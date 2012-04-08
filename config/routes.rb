@@ -5,6 +5,7 @@ Nfo::Application.routes.draw do
   match '/', to: "articles#index", as: 'root'
   match '/login', to: "sessions#new", as: 'login'
   match '/logout', to: "sessions#destroy", as: 'logout', via: :delete
+  match '/tagged/:value', to: "tags#posts_by_tag", as: 'tag'
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

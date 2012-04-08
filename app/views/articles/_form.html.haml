@@ -1,0 +1,17 @@
+.post
+  %h2= article.title
+  %p.post_header
+    ~"// Author: #{article.user.nickname}"
+    %br
+    ~"// Date: #{article.created_at.localtime} | "
+    %time.timeago{ datetime: article.created_at.to_s(:timeago) }
+    %br
+    - if current_user? article.user
+      ~ "// TODO: "
+      != (link_to "edit") + ", " + (link_to "delete") + " ect..."
+  %p= article.content
+  %p.post_footer
+    - if article.modified?
+      ~ "// Modified: #{article.updated_at.localtime} | "
+      %time.timeago{ datetime: article.updated_at.to_s(:timeago) }
+    != "#define TAGS '#{tag_list article}'"

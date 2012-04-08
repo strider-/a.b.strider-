@@ -14,5 +14,9 @@ class User < ActiveRecord::Base
                     format: { with: VALID_EMAL_REGEX },
                     uniqueness: { case_sensitive: false }
   validates :password, length: { minimum: 8 }, on: :create
-  validates :password_confirmation, presence: true, on: :create                    
+  validates :password_confirmation, presence: true, on: :create           
+
+  def age
+    (Date.today - birthday).to_i / 365
+  end         
 end

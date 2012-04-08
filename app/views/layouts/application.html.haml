@@ -25,8 +25,12 @@
               = link_to "New Post", new_article_path
             %li
               %a{ href: "#"} Footer Links
+        %p - current crew -
+        %ul
+          - users.each do |u|
+            %li= link_to u.nickname, user_path(u)
         %p
-          %span Maybe some content here or something, who cares
+          %span Maybe some content here or something, who cares            
       .content
         - flash.each do |key,msg|
           .message
@@ -38,7 +42,7 @@
           %a{href: link.link, title: link.title, target: "_blank" } [#{link.code}]
         .account
           - if authenticated? 
-            != "<" + (link_to current_user.nickname, edit_user_path(current_user)) + ">"
+            != "<" + (link_to current_user.nickname, profile_path) + ">"
             = link_to "[l-]", logout_path, method: "delete"
           - else          
             = link_to "[l+]", login_path

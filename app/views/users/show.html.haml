@@ -1,0 +1,17 @@
+- provide(:title, "#{@user.nickname}'s Profile")
+
+%h2 #{@user.nickname}.json
+
+%pre.profile
+  = preserve do
+    {
+    ="  'name': '#{@user.firstname} #{@user.lastname}',"
+    =""
+    ="  'dob': '#{@user.birthday}',"
+    =""
+    ="  'age': #{@user.age},"
+    =""    
+    ="  'bio': {"
+    ="       'desc': '#{@user.bio}'"
+    ="  }"
+    }

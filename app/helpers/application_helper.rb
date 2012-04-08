@@ -14,4 +14,8 @@ module ApplicationHelper
   def personal_links
     PersonalLink.all
   end
+
+  def users
+    User.all
+  end
 end

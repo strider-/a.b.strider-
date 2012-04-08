@@ -1,0 +1,12 @@
+- provide(:title, "User Profile")
+
+%h2= "User Profile // #{@user.nickname}"
+
+= simple_form_for(@user) do |f|
+  %p
+    = f.input :firstname, input_html: { class: "input"}, label: "First Name", wrapper_html: { class: "user-input" }, required: false
+    = f.input :lastname, input_html: { class: "input"}, label: "Last Name", wrapper_html: { class: "user-input" }, required: false
+    = f.input :email, as: :email, input_html: { class: "input wide"}, label: "Email", wrapper_html: { class: "user-input" }, required: false
+    = f.input :birthday, as: :date, input_html: { class: "input"}, start_year: Date.today.year - 90, end_year: Date.today.year - 10, wrapper_html: { class: "user-input" }, required: false
+    = f.input :bio, as: :text, input_html: { class: "input wide"}, wrapper_html: { class: "user-input" }, requred: false
+    = f.button :submit, class: "input user-submit", value: "Save"

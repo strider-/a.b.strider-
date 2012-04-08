@@ -1,6 +1,7 @@
 Nfo::Application.routes.draw do
 
   resources :sessions, only: [:new, :create, :destroy ]
+  resources :articles
 
   match '/', to: "articles#index", as: 'root'
   match '/login', to: "sessions#new", as: 'login'

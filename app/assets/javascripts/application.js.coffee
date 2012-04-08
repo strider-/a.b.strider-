@@ -18,12 +18,16 @@ NFO = NFO or {}
 
 $ ->
   NFO.Flash.init()
-  NFO.Timeago.init()
+  NFO.SiteFeatures.init()
 
 NFO.Flash = init: ->
   $('a.close').live 'click', ->
     $(this).closest('.message').slideUp 'fast', ->
       $(this).remove()
 
-NFO.Timeago = init: ->
+NFO.SiteFeatures = init: ->
+  # enabling timeago plugin
   $("time.timeago").timeago()
+  # enabling 'cancel' elements by id
+  $("#cancel").click ->
+    window.location = '/'

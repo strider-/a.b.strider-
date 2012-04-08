@@ -7,10 +7,11 @@ class ArticlesController < ApplicationController
     @articles = Article.last(5)
   end
 
+<<<<<<< HEAD
   def show
     @article = Article.find(params[:id])
   end
-
+=======
   def new
     @article = current_user.articles.build
   end
@@ -49,4 +50,5 @@ class ArticlesController < ApplicationController
     def authenticated
       redirect_to root_path if current_user.nil?
     end
+>>>>>>> article-crud
 end

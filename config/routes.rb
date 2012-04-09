@@ -4,7 +4,8 @@ Nfo::Application.routes.draw do
   resources :users, only: [:show, :update]
   resources :articles
 
-  match '/', to: "articles#index", as: 'root'
+  root to: "articles#index"
+  
   match '/login', to: "sessions#new", as: 'login'
   match '/logout', to: "sessions#destroy", as: 'logout', via: :delete
   match '/tagged/:value', to: "tags#posts_by_tag", as: 'tag'

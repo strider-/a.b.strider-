@@ -13,9 +13,11 @@ User.create(
   nickname:"strider-",
   email:"striderIIDX@gmail.com",
   birthday:"1980-04-03",
+  bio: "West Philadelphia born & raised, on the playground is where I spent most of my days.",
+
+  # yeah, this'll be changed in production. Hi GitHub! :V
   password:"password",
   password_confirmation:"password"
-  bio: "West Philadelphia born & raised, on the playground is where I spent most of my days."
 )
 
 #personal links

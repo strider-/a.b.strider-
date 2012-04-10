@@ -190,7 +190,7 @@ h2 {
   padding-left:25px;
 }
 
-.project_table {
+.data_table {
   margin:10px;
 
   td {
@@ -200,7 +200,11 @@ h2 {
   
   tr:nth-child(odd) {
     background-color: #efefef;
-  }  
+  }
+
+  .data_footer {
+    text-align: center;
+  }
 }
 
 .pagination {

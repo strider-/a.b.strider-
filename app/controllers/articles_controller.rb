@@ -4,7 +4,11 @@ class ArticlesController < ApplicationController
   include ApplicationHelper
 
   def index
-    @articles = Article.order("created_at DESC").paginate(page: params[:page], per_page: 5)
+    get_articles 5
+  end
+
+  def archive
+    get_articles 15
   end
 
   def show
@@ -50,6 +54,10 @@ class ArticlesController < ApplicationController
 
     def authenticated
       redirect_to root_path if current_user.nil?
+    end
+
+    def get_articles(count)
+      @articles = Article.order("created_at DESC").paginate(page: params[:page], per_page: count)
     end
 
     def update_tags

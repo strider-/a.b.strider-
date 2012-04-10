@@ -1,0 +1,26 @@
+.plink_tab
+  %span.plink= link.title || "New Link"
+  .plink_info
+    %p
+      %input{type: "hidden", name: "id", value: link.id || 0 }
+      
+      %label Title:
+      %input.input.title{name: "title", type: "text", value: link.title, maxlength: 50 }
+      %br
+
+      %label Link :
+      %input.input.link{name: "link", type: "text", value: link.link, maxlength: 100 }
+      %br
+
+      %label Code :
+      %input.input.code{name: "code", type: "text", value: link.code, maxlength: 3 }
+      %br
+      %br
+
+      [
+      %a.link_action{href: "#", rel: "save"}Save
+      ]
+      &nbsp;&nbsp;
+      [
+      %a.link_action{href:"#", rel: "delete"}Delete
+      ]

@@ -24,7 +24,7 @@
             %li
               = link_to "New Post", new_article_path
             %li
-              %a{ href: "#"} Footer Links
+              = link_to "Footer Links", links_path
         %p - current crew -
         %ul
           - users.each do |u|
@@ -46,4 +46,3 @@
             = link_to "[l-]", logout_path, method: "delete"
           - else          
             = link_to "[l+]", login_path
-    = debug(params) if Rails.env.development?      

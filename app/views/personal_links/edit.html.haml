@@ -1,0 +1,12 @@
+- provide(:title, "Personal Links")
+
+%h2 
+  Personal Links
+  %a.link_action{href: "#", rel: "add", title: "click to add link" } [+]
+
+#link_container
+  - @links.each do |link|
+    = render partial: 'personal_links/form', locals: { link: link }
+
+.hidden.template
+  = render partial: 'personal_links/form', locals: { link: empty_link }

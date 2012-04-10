@@ -22,6 +22,7 @@ gem 'jquery-rails'
 gem 'simple_form'
 gem 'inherited_resources'
 gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'will_paginate', '~> 3.0.0'
 
 group :production do
   gem 'pg'  

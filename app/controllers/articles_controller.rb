@@ -4,7 +4,7 @@ class ArticlesController < ApplicationController
   include ApplicationHelper
 
   def index
-    @articles = Article.order("created_at DESC").last(5)
+    @articles = Article.order("created_at DESC").paginate(page: params[:page], per_page: 5)
   end
 
   def show
@@ -53,15 +53,17 @@ class ArticlesController < ApplicationController
     end
 
     def update_tags
-      currentTags = @article.tags.map{|t| t.value}
-      toAdd = params[:tags] - currentTags
-      toDel = currentTags - params[:tags]
+      if params[:tags]
+        currentTags = @article.tags.map{|t| t.value}
+        toAdd = params[:tags] - currentTags
+        toDel = currentTags - params[:tags]
 
-      toAdd.each do |v|
-        @article.tags.create(value: v)
-      end
-      toDel.each do |v|
-        @article.tags.find_by_value(v).destroy
+        toAdd.each do |v|
+          @article.tags.create(value: v)
+        end
+        toDel.each do |v|
+          @article.tags.find_by_value(v).destroy
+        end
       end
     end
 end

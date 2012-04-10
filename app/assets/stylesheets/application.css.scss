@@ -202,3 +202,12 @@ h2 {
     background-color: #efefef;
   }  
 }
+
+.pagination {
+  text-align: center;
+  padding: 5px;
+
+  .disabled {
+    display: none;
+  }
+}

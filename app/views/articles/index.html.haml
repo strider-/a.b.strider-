@@ -2,6 +2,8 @@
 
 - if @articles.empty?
   %h2 Tumbleweeds...
-  
+
 - @articles.each do |article|
   = render 'form', article: article
+
+= will_paginate @articles, page_links: false, previous_label: "<< Newer", next_label: "Older >>"

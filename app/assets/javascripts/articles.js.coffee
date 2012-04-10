@@ -25,25 +25,9 @@ NFO.Tags =
       exists = true  if $(this).text().trim().toLowerCase() is tag.trim().toLowerCase()
 
     unless exists
-      rnd = "" + new Date().getTime()
-      $(document.createElement("input")).attr(
-        type: "hidden"
-        value: rnd
-        name: "tags.index"
-      ).appendTo $("div.tags")
       span = $(document.createElement("span")).attr(title: "click to remove").addClass("tag").text(tag).appendTo($("div.tags"))
       $(document.createElement("input")).attr(
         type: "hidden"
-        value: "0"
-        name: "tags[" + rnd + "].id"
-      ).appendTo $(span)
-      $(document.createElement("input")).attr(
-        type: "hidden"
         value: tag
-        name: "tags[" + rnd + "].value"
-      ).appendTo $(span)
-      $(document.createElement("input")).attr(
-        type: "hidden"
-        value: $("input#article_id").attr("value")
-        name: "tags[" + rnd + "].article_id"
+        name: "tags[]"
       ).appendTo $(span)

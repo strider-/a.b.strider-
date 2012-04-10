@@ -1,10 +1,6 @@
 %input.input{ id: "tag" }
   .tags
     - tags.each do |t|
-      - uuid = UUID.new.generate
-      %input{ type: "hidden", name: "tags.index", value: uuid }
       %span.tag{ title: "click to remove" } 
         = t.value
-        %input{ type: "hidden", name: "tags[#{uuid}].id", value: t.id }
-        %input{ type: "hidden", name: "tags[#{uuid}].article_id", value: t.article_id }
-        %input{ type: "hidden", name: "tags[#{uuid}].value", value: t.value }
+        %input{ type: "hidden", name: "tags[]", value: t.value }

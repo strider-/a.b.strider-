@@ -53,9 +53,9 @@ class ArticlesController < ApplicationController
     end
 
     def update_tags
-      values = params[:tags].map{|t| t.second[".value"]}
-      toAdd = values - @article.tags.map{|t| t.value}
-      toDel = @article.tags.map{|t| t.value} - values
+      currentTags = @article.tags.map{|t| t.value}
+      toAdd = params[:tags] - currentTags
+      toDel = currentTags - params[:tags]
 
       toAdd.each do |v|
         @article.tags.create(value: v)

@@ -9,7 +9,7 @@
   .post
     %h3= link_to a.title, article_path(a)
     %p
-      %span= a.content.truncate(100)
+      %span= strip_tags a.content.truncate(100)
       = link_to "(more)", article_path(a)
       %span.post_footer
       ~ "// posted "

@@ -10,7 +10,7 @@
     - if current_user? article.user
       ~ "// TODO: "
       != (edit_link article) + ", " + (delete_link article ) + " ect..."
-  %p= article.content
+  %p= article.content.html_safe
   %p.post_footer
     - if article.modified?
       ~ "// Modified: #{article.updated_at.localtime} | "

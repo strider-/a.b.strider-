@@ -15,7 +15,7 @@ class Commit
     get("").each do |result|
       results << Commit.new do |c|
         c.message = result["commit"]["message"]
-        c.date = DateTime.parse result["commit"]["committer"]["date"]
+        c.date = Time.parse result["commit"]["committer"]["date"]
         c.author = result["commit"]["committer"]["name"]
         c.url = "https://github.com/strider-/a.b.strider-/commit/#{result["sha"]}"
       end

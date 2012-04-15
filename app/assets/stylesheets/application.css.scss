@@ -149,6 +149,9 @@ h2 {
 
 .post {
   border-bottom: 1px dashed #000; 
+  h3 {
+    padding-top: 10px;
+  }
 }
 
 .message {  
@@ -228,8 +231,8 @@ h2 {
   &.date {
     padding-bottom: 10px;
   }
+}
 
-  .timeago {
-    color: #777;
-  }
+.faded {
+  color: #777;
 }

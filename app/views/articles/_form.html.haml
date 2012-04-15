@@ -4,7 +4,7 @@
     ~"// Author:"
     = link_to article.user.nickname, user_path(article.user)
     %br
-    ~"// Date: #{article.created_at.localtime} | "
+    ~"// Date: #{article.created_at} | "
     %time.timeago{ datetime: article.created_at.to_s(:timeago) }
     %br
     - if current_user? article.user
@@ -13,7 +13,7 @@
   %p= article.content.html_safe
   %p.post_footer
     - if article.modified?
-      ~ "// Modified: #{article.updated_at.localtime} | "
+      ~ "// Modified: #{article.updated_at} | "
       %time.timeago{ datetime: article.updated_at.to_s(:timeago) }
       %br 
     != "#define TAGS '#{tag_list article}'"

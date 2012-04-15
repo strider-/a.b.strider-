@@ -11,6 +11,6 @@
     %p
       %span= strip_tags a.content.truncate(100)
       = link_to "(more)", article_path(a)
-      %span.post_footer
-      ~ "// posted "
-      %time.timeago{ datetime: a.created_at.to_s(:timeago) }
+      %span.post_footer.faded
+        ~ "// posted "
+        %time.timeago{ datetime: a.created_at.to_s(:timeago) }

@@ -13,7 +13,7 @@
       %tr
         %td= link_to article.title, article_path(article)
         %td= (tag_list article).html_safe
-        %td= article.created_at.localtime
+        %td= article.created_at
   %tfoot
     %tr
       %td.data_footer{colspan: 3}

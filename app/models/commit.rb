@@ -24,6 +24,6 @@ class Commit
   end
 
   def self.latest count
-    self.all[0..count]
+    self.all[0..(count - 1)]
   end
 end

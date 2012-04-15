@@ -1,4 +1,5 @@
 module ApplicationHelper
+  
   def current_user?(user)
     user == current_user
   end  
@@ -15,7 +16,7 @@ module ApplicationHelper
     PersonalLink.all
   end
 
-  def users
-    User.all
+  def latest_activity     
+    Commit.latest 5
   end
 end

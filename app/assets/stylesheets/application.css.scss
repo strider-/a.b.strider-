@@ -219,3 +219,17 @@ h2 {
 .hidden {
   display: none;
 }
+
+.commits li {
+  &:before {
+    content: none !important;
+  }
+
+  &.date {
+    padding-bottom: 10px;
+  }
+
+  .timeago {
+    color: #777;
+  }
+}

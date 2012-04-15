@@ -25,12 +25,14 @@
               = link_to "New Post", new_article_path
             %li
               = link_to "Footer Links", links_path
-        %p - current crew -
-        %ul
-          - users.each do |u|
-            %li= link_to u.nickname, user_path(u)
-        %p
-          %span Maybe some content here or something, who cares            
+        - cache(expires_in: 15.minutes) do
+          %p - Latest Commits -
+          %ul.commits
+            - latest_activity.each do |c|
+              %li
+                %a{href: c.url, title: c.author, target: "_blank"}= c.message
+              %li.date
+                %time.timeago{ datetime: c.date.to_s(:timeago) }                      
       .content
         - flash.each do |key,msg|
           .message

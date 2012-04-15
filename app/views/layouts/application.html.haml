@@ -32,7 +32,7 @@
               %li
                 %a{href: c.url, title: c.author, target: "_blank"}= c.message
               %li.date
-                %time.timeago{ datetime: c.date.to_s(:timeago) }                      
+                %time.timeago{ datetime: c.date.localtime.to_s(:timeago) }                      
       .content
         - flash.each do |key,msg|
           .message

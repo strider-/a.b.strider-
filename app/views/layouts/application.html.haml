@@ -17,6 +17,8 @@
             = link_to "Home", root_path
           %li
             = link_to "Archive", archive_path
+          %li
+            = link_to "GitHub Repo", "https://github.com/strider-/a.b.strider-", target: "_blank"
           / %li
           /  %a{ href: "#"} Projects
         - if authenticated?
@@ -32,7 +34,7 @@
               %li
                 %a{href: c.url, title: c.author, target: "_blank"}= c.message
               %li.date
-                %time.timeago.faded{ datetime: c.date.utc.to_s(:timeago) }                      
+                %time.timeago.faded{ datetime: c.date.to_s(:timeago) }                      
       .content
         - flash.each do |key,msg|
           .message

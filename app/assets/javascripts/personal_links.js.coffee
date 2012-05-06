@@ -2,12 +2,12 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
-NFO = NFO or {}
+window.NFO = window.NFO or {}
 
 $ ->
-  NFO.Links.init()
+  window.NFO.Links.init()
 
-NFO.Links = 
+window.NFO.Links = 
   init: ->
     $('.plink').live 'click', ->
       $('.plink_info').hide()
@@ -26,14 +26,11 @@ NFO.Links =
   addMessage: (message) ->
     content = $('div.content').first()
     if content
-      $msg = $('<div class="message"><span>' + message + '<a href="#" class="close" title="Close"> X </a></span></div>')
-      $msg.hide()
-      $(content).find('div.message a.close').click()
-      $(content).prepend $msg
-      $msg.slideDown "fast"
+      window.NFO.Flash.dismiss()
+      window.NFO.Flash.addMessage message 
 
   performLinkAction: ->    
-    self = NFO.Links
+    self = window.NFO.Links
     $parent = $(this).parent()
     $section = $parent.parent()
     action = $(this).attr('rel')
@@ -80,12 +77,11 @@ NFO.Links =
             else
               self.addMessage data.error     
       else
-        $section.prev().remove()
-        $section.remove()                      
+        $section.closest('.plink_tab').remove()                  
     else if action is 'add'
       $container = $("#link_container")
       if $container.find("input[value='0']").length is 0    
-        $newLink = $('.template .plink_tab').clone()
+        $newLink = $(HandlebarsTemplates['new_personal_link']())
         $container.append $newLink
         $container.find(".plink_tab span").last().trigger "click"
       else

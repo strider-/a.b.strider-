@@ -47,6 +47,10 @@ GEM
       activesupport (~> 3.0)
       haml (~> 3.0)
       railties (~> 3.0)
+    handlebars_assets (0.4.4)
+      execjs (>= 1.2.9)
+      sprockets (>= 2.0.3)
+      tilt
     has_scope (0.5.1)
     hike (1.2.1)
     httparty (0.8.2)
@@ -128,6 +132,7 @@ DEPENDENCIES
   bcrypt-ruby (~> 3.0.0)
   coffee-rails (~> 3.2.1)
   haml-rails
+  handlebars_assets
   httparty
   inherited_resources
   jquery-rails

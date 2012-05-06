@@ -2,12 +2,12 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
-NFO = NFO or {}
+window.NFO = window.NFO or {}
 
 $ ->
-  NFO.Tags.init()
+  window.NFO.Tags.init()
 
-NFO.Tags = 
+window.NFO.Tags = 
   init: ->
     $("span.tag").live "click", ->
       $(this).remove()
@@ -16,7 +16,7 @@ NFO.Tags =
         e.preventDefault()
         tag = $(this).val()
         if tag and tag.length > 0
-          NFO.Tags.addTag tag
+          window.NFO.Tags.addTag tag
           $(this).val ""
         false
   addTag: (tag) ->

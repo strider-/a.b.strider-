@@ -13,19 +13,31 @@
 #= require jquery
 #= require jquery_ujs
 #= require_tree .
+#= require handlebars.runtime
+#= require_tree ../templates
 
-NFO = NFO or {}
+window.NFO = window.NFO or {}
 
 $ ->
-  NFO.Flash.init()
-  NFO.SiteFeatures.init()
+  window.NFO.Flash.init()
+  window.NFO.SiteFeatures.init()
 
-NFO.Flash = init: ->
-  $('a.close').live 'click', ->
-    $(this).closest('.message').slideUp 'fast', ->
-      $(this).remove()
+window.NFO.Flash = 
+  container: null
+  init: ->
+    this.container = $('div.content')
+    $('a.close').live 'click', ->
+      $(this).closest('.message').slideUp 'fast', ->
+        $(this).remove()
+  addMessage: (message) ->
+    $result = $(HandlebarsTemplates['flash_message']({ message: message })).hide()
+    this.container.prepend($result)
+    $result.slideDown "fast"
+  dismiss: ->
+    this.container.find('.message a.close').click()
 
-NFO.SiteFeatures = init: ->
+
+window.NFO.SiteFeatures = init: ->
   # enabling timeago plugin
   $("time.timeago").timeago()
   # enabling 'cancel' elements by id

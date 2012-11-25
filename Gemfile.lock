@@ -41,6 +41,7 @@ GEM
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    friendly_id (4.0.8)
     haml (3.1.6)
     haml-rails (0.3.4)
       actionpack (~> 3.0)
@@ -65,6 +66,7 @@ GEM
       railties (>= 3.2.0, < 5.0)
       thor (~> 0.14)
     json (1.7.3)
+    kgio (2.7.4)
     mail (2.4.4)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
@@ -96,6 +98,7 @@ GEM
       rake (>= 0.8.7)
       rdoc (~> 3.4)
       thor (~> 0.14.6)
+    raindrops (0.10.0)
     rake (0.9.2.2)
     rdoc (3.12)
       json (~> 1.4)
@@ -123,6 +126,10 @@ GEM
     uglifier (1.2.5)
       execjs (>= 0.3.0)
       multi_json (~> 1.3)
+    unicorn (4.4.0)
+      kgio (~> 2.6)
+      rack
+      raindrops (~> 0.7)
     will_paginate (3.0.3)
 
 PLATFORMS
@@ -131,6 +138,7 @@ PLATFORMS
 DEPENDENCIES
   bcrypt-ruby (~> 3.0.0)
   coffee-rails (~> 3.2.1)
+  friendly_id
   haml-rails
   handlebars_assets
   httparty
@@ -142,4 +150,5 @@ DEPENDENCIES
   simple_form
   sqlite3
   uglifier (>= 1.0.3)
+  unicorn
   will_paginate (~> 3.0.0)

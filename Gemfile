@@ -9,6 +9,8 @@ gem 'simple_form'
 gem 'inherited_resources'
 gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'will_paginate', '~> 3.0.0'
+gem 'friendly_id'
+gem 'unicorn'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -27,7 +29,7 @@ group :assets do
 end
 
 group :production do
-  gem 'pg'  
+  gem 'pg'
 end
 
 # To use ActiveModel has_secure_password

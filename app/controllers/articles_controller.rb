@@ -52,10 +52,6 @@ class ArticlesController < ApplicationController
 
   private
 
-    def authenticated
-      redirect_to root_path if current_user.nil?
-    end
-
     def get_articles(count)
       @articles = Article.order("created_at DESC").paginate(page: params[:page], per_page: count)
     end

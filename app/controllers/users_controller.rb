@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_filter :authenticated, only: [:edit, :update]
-  
+
   include ApplicationHelper
 
   def show
@@ -18,12 +18,6 @@ class UsersController < ApplicationController
     else
       flash.now[:error] = "Missing or invalid profile information!"
       render 'edit'
-    end    
-  end
-
-  private
-
-    def authenticated
-      redirect_to root_path if current_user.nil?
     end
+  end
 end

@@ -11,7 +11,7 @@ class PersonalLinksController < ApplicationController
     link = params[:link]
     respond_to do |format|
       new_link = PersonalLink.create(title: link[:title], link: link[:link], code: link[:code])
-      if new_link.valid?      
+      if new_link.valid?
         format.json { render json: { success: true, id: new_link.id } }
       end
 
@@ -26,8 +26,8 @@ class PersonalLinksController < ApplicationController
         format.json { render json: { success: true, id: link[:id] } }
       end
 
-      format.json { render json: { success: false, error: "Unable to save changes!" } } 
-    end       
+      format.json { render json: { success: false, error: "Unable to save changes!" } }
+    end
   end
 
   def destroy
@@ -36,10 +36,4 @@ class PersonalLinksController < ApplicationController
       format.json { render json: { success: true } }
     end
   end
-
-  private
-
-    def authenticated
-      redirect_to root_path if current_user.nil?
-    end  
 end

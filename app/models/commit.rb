@@ -12,7 +12,7 @@ class Commit
 
   def self.all
     results = []
-    get("").each do |result|
+    get("", :headers => {"User-Agent" => "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1468.0 Safari/537.36"}).each do |result|
       results << Commit.new do |c|
         c.message = result["commit"]["message"]
         c.date = Time.parse result["commit"]["committer"]["date"]
